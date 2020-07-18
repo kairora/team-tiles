@@ -67,7 +67,6 @@ function promptNext() {
             return
         }
        })
-    
 }
 function promptEngineer() {
     return inquirer.prompt([
