@@ -12,7 +12,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
-// Write code to use inquirer to gather information about the development team members,
+// Write code to use inquirer to gather information about the development team members, 
+// and to create objects for each team member (using the correct classes as blueprints!)
 function promptManager() {
     return inquirer.prompt([
         {
@@ -37,7 +38,7 @@ function promptManager() {
         },
     ])
     .then(answers => {
-        answers.title = "manager"
+        const manager = new Manager(answers.name, answers.email, answers.id, answers.office)
         return promptNext()
       })
 }
@@ -88,7 +89,7 @@ function promptEngineer() {
         },
     ])
     .then(answers => {
-        answers.title = "engineer"
+        const engineer = new Engineer(answers.name, answers.email, answers.id, answers.github)
         return promptNext()
        })
 }
@@ -116,7 +117,7 @@ function promptIntern() {
         },
     ])
     .then(answers => {
-        answers.title = "intern"
+        const intern = new Intern(answers.name, answers.email, answers.id, answers.github)
         return promptNext()
        })
 }
@@ -125,7 +126,7 @@ promptManager()
 
 
 
-// and to create objects for each team member (using the correct classes as blueprints!)
+
 
 
 
