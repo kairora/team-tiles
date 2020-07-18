@@ -36,6 +36,10 @@ function promptManager() {
             message: "What is the manager's office room number?"
         },
     ])
+    .then(answers => {
+        // answers.title = "manager"
+       return promptNext()
+      })
 }
 function promptNext() {
     return inquirer.prompt([
@@ -49,7 +53,16 @@ function promptNext() {
                 "No more team members.",
             ]
         },
-    ])
+    ]).then(answers => {
+        if(answers.nextPerson === "Engineer") {
+            return promptEngineer()
+        } else if(answers.nextPerson === "Intern"){
+            return promptIntern()
+        }else {
+            return
+        }
+       })
+    
 }
 function promptEngineer() {
     return inquirer.prompt([
@@ -74,6 +87,9 @@ function promptEngineer() {
             message: "What is the Engineer's Github Username?"
         },
     ])
+    .then(answers => {
+        return promptNext()
+       })
 }
 function promptIntern() {
     return inquirer.prompt([
@@ -98,7 +114,11 @@ function promptIntern() {
             message: "What is the Intern's Github Username?"
         },
     ])
+    .then(answers => {
+        return promptNext()
+       })
 }
+promptManager()
 
 
 
