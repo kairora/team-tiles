@@ -17,7 +17,7 @@ let teamArr = [];
 // Write code to use inquirer to gather information about the development team members, 
 // and to create objects for each team member (using the correct classes as blueprints!)
 function promptManager() {
-    console.log("Build your engineering team!")
+    console.log("Start building your engineering team!")
     return inquirer.prompt([
         {
             type: "input",
