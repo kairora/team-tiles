@@ -17,28 +17,28 @@ function promptManager() {
     return inquirer.prompt([
         {
             type: "input",
-            name: "manName",
+            name: "name",
             message: "What is the manager's name?"
         },
         {
             type: "input",
-            name: "manEmail",
+            name: "email",
             message: "What is the manager's email?"
         },
         {
             type: "input",
-            name: "manID",
+            name: "id",
             message: "What the manager's ID?"
         },
         {
             type: "input",
-            name: "manOffice",
+            name: "office",
             message: "What is the manager's office room number?"
         },
     ])
     .then(answers => {
-        // answers.title = "manager"
-       return promptNext()
+        answers.title = "manager"
+        return promptNext()
       })
 }
 function promptNext() {
@@ -68,26 +68,27 @@ function promptEngineer() {
     return inquirer.prompt([
         {
             type: "input",
-            name: "engName",
+            name: "name",
             message: "What is the Engineer's name?"
         },
         {
             type: "input",
-            name: "engEmail",
+            name: "email",
             message: "What is the Engineer's email?"
         },
         {
             type: "input",
-            name: "engID",
+            name: "id",
             message: "What the Engineer's ID?"
         },
         {
             type: "input",
-            name: "engGit",
+            name: "github",
             message: "What is the Engineer's Github Username?"
         },
     ])
     .then(answers => {
+        answers.title = "engineer"
         return promptNext()
        })
 }
@@ -95,26 +96,27 @@ function promptIntern() {
     return inquirer.prompt([
         {
             type: "input",
-            name: "intName",
+            name: "name",
             message: "What is the Intern's name?"
         },
         {
             type: "input",
-            name: "intEmail",
+            name: "email",
             message: "What is the Intern's email?"
         },
         {
             type: "input",
-            name: "intID",
+            name: "id",
             message: "What the Intern's ID?"
         },
         {
             type: "input",
-            name: "intGit",
+            name: "github",
             message: "What is the Intern's Github Username?"
         },
     ])
     .then(answers => {
+        answers.title = "intern"
         return promptNext()
        })
 }
