@@ -1,24 +1,26 @@
 .jumbotron {
     color: #259c8c;
     background-color: #85DCB6;
+    box-shadow: 0px 5px
 }
-
 body {
     background-color: #FFAA91;
 }
-
 .border {
     border-width: 5px !important;;
 }
-
-.card .border {
-    border-color: #581027 !important;;
-}
-
 .card {
     background-color: #85DCB6;
     color: #bb6e86;
-    margin: 20px;
-
+    margin: 10px;
+    box-shadow: 5px 10px;
+    margin-bottom: 0px !important;;
+    
 }
 
+.list-group-item {
+    background-color: #c1e9d7;
+}
+.card-columns {
+    display: inline-block;
+}
