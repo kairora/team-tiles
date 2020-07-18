@@ -11,10 +11,13 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+let teamArr = [];
+
 
 // Write code to use inquirer to gather information about the development team members, 
 // and to create objects for each team member (using the correct classes as blueprints!)
 function promptManager() {
+    console.log("Build your engineering team!")
     return inquirer.prompt([
         {
             type: "input",
@@ -39,6 +42,7 @@ function promptManager() {
     ])
     .then(answers => {
         const manager = new Manager(answers.name, answers.email, answers.id, answers.office)
+        teamArr.push(manager)
         return promptNext()
       })
 }
@@ -89,7 +93,8 @@ function promptEngineer() {
         },
     ])
     .then(answers => {
-        const engineer = new Engineer(answers.name, answers.email, answers.id, answers.github)
+        const engineer = new Engineer(answers.name, answers.email, answers.id, answers.github);
+        teamArr.push(engineer)
         return promptNext()
        })
 }
@@ -112,27 +117,23 @@ function promptIntern() {
         },
         {
             type: "input",
-            name: "github",
-            message: "What is the Intern's Github Username?"
+            name: "school",
+            message: "What is the name of the Intern's current or most recent school?"
         },
     ])
     .then(answers => {
-        const intern = new Intern(answers.name, answers.email, answers.id, answers.github)
+        const intern = new Intern(answers.name, answers.email, answers.id, answers.school);
+        teamArr.push(intern)
         return promptNext()
        })
 }
-promptManager()
-
-
-
-
-
-
+promptManager();
 
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+render(teamArr);
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
