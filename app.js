@@ -36,12 +36,12 @@ function promptManager() {
         },
         {
             type: "input",
-            name: "office",
+            name: "officeNumber",
             message: "What is the manager's office room number?"
         },
     ])
     .then(answers => {
-        const manager = new Manager(answers.name, answers.email, answers.id, answers.office)
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
         teamArr.push(manager)
         return promptNext()
       })
@@ -92,7 +92,7 @@ function promptEngineer() {
         },
     ])
     .then(answers => {
-        const engineer = new Engineer(answers.name, answers.email, answers.id, answers.github);
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         teamArr.push(engineer)
         return promptNext()
        })
@@ -121,7 +121,7 @@ function promptIntern() {
         },
     ])
     .then(answers => {
-        const intern = new Intern(answers.name, answers.email, answers.id, answers.school);
+        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
         teamArr.push(intern)
         return promptNext()
        })
