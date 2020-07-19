@@ -31,7 +31,7 @@ Once all packages are installed, the user can then run the command:
 node index 
 ~~~ 
  
-and then answer the line of questions about their team members. Once the user is done adding team members, they may then choose the option "No more team members." to generate an html page that displays all of their team members in nicely styled tiles.
+and then answer the line of questions about their team members. While answering, please be sure to enter valid inputs for each question. Once the user is done adding team members, they may then choose the option `"No more team members."` to generate an HTML page that displays all of their team members in nicely styled tiles.
 
 ---
 
