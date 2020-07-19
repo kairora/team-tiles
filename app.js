@@ -147,10 +147,19 @@ function promptEngineer() {
             }
 
         },
-        {
+        // username must be alphanumeric and 3-16 characters in length, may have an underscore.
+        { 
             type: "input",
             name: "github",
-            message: "What is the Engineer's Github Username?"
+            message: "What is the Engineer's Github Username?",
+            validate: input => {
+                const valGithub = input.match(/^[a-z0-9_-]{3,16}$/);
+                if(valGithub) {
+                    return true;
+                } else {
+                    return "Please input a valid Github username."
+                }
+            }
         },
     ])
     .then(answers => {
@@ -202,7 +211,14 @@ function promptIntern() {
         {
             type: "input",
             name: "school",
-            message: "What is the name of the Intern's current or most recent school?"
+            message: "What is the name of the Intern's current or most recent school?",
+            validate: input => {
+                if(input !== "") {
+                    return true;
+                } else {
+                    return "Please input a valid university name."
+                }
+            }
         },
     ])
     .then(answers => {
