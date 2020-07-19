@@ -19,7 +19,8 @@ const asyncFileWriter = util.promisify(fs.writeFile);
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 
-
+// email validation regex taken from https://ui.dev/validate-email-address-javascript/
+// 
 function promptManager() {
     console.log("Start building your engineering team!")
     return inquirer.prompt([
@@ -51,12 +52,29 @@ function promptManager() {
         {
             type: "input",
             name: "id",
-            message: "What the manager's ID?"
+            message: "What the manager's ID?", 
+            validate: input => {
+                const valID = input.match(/[a-zA-Z0-9]$/);
+                if(valID) {
+                    return true;
+                } else {
+                    return "Please input a valid employee ID."
+                }
+            }
         },
         {
             type: "input",
             name: "officeNumber",
-            message: "What is the manager's office room number?"
+            message: "What is the manager's office room number?",
+            validate: input => {
+                const valOffice = input.match(/^[1-9]\d*$/);
+                if(valOffice) {
+                    return true;
+                } else {
+                    return "Please input a valid room number."
+                }
+            }
+            
         },
     ])
     .then(answers => {
@@ -74,7 +92,7 @@ function promptNext() {
             choices: [
                 "Engineer",
                 "Intern",
-                "No more team members.",
+                "No more team members."
             ]
         },
     ]).then(answers => {
@@ -92,7 +110,15 @@ function promptEngineer() {
         {
             type: "input",
             name: "name",
-            message: "What is the Engineer's name?"
+            message: "What is the Engineer's name?",
+            validate: input => {
+                if(input !== "") {
+                    return true;
+                } else {
+                    return "Please input the Engineer's full name."
+                }
+            }
+
         },
         {
             type: "input",
@@ -121,7 +147,14 @@ function promptIntern() {
         {
             type: "input",
             name: "name",
-            message: "What is the Intern's name?"
+            message: "What is the Intern's name?",
+            validate: input => {
+                if(input !== "") {
+                    return true;
+                } else {
+                    return "Please input the Intern's full name."
+                }
+            }
         },
         {
             type: "input",
