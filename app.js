@@ -26,12 +26,27 @@ function promptManager() {
         {
             type: "input",
             name: "name",
-            message: "What is the manager's name?"
+            message: "What is the manager's name?",
+            validate: input => {
+                if(input !== "") {
+                    return true;
+                } else {
+                    return "Please input the manager's full name."
+                }
+            }
         },
         {
             type: "input",
             name: "email",
-            message: "What is the manager's email?"
+            message: "What is the manager's email?",
+            validate: input => {
+                const valEmail = input.match(/\S+@\S+\.\S+/);
+                if(valEmail) {
+                    return true;
+                } else {
+                    return "Please input a valid email."
+                }
+            }
         },
         {
             type: "input",
