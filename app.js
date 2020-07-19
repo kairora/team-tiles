@@ -18,7 +18,6 @@ const asyncFileWriter = util.promisify(fs.writeFile);
 
 
 // email validation regex taken from https://ui.dev/validate-email-address-javascript/
-// 
 function promptManager() {
     console.log("Start building your engineering team!")
     return inquirer.prompt([
