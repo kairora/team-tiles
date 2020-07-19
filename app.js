@@ -123,12 +123,29 @@ function promptEngineer() {
         {
             type: "input",
             name: "email",
-            message: "What is the Engineer's email?"
+            message: "What is the Engineer's email?",
+            validate: input => {
+                const valEmail = input.match(/\S+@\S+\.\S+/);
+                if(valEmail) {
+                    return true;
+                } else {
+                    return "Please input a valid email."
+                }
+            }
         },
         {
             type: "input",
             name: "id",
-            message: "What the Engineer's ID?"
+            message: "What the Engineer's ID?",
+            validate: input => {
+                const valID = input.match(/[a-zA-Z0-9]$/);
+                if(valID) {
+                    return true;
+                } else {
+                    return "Please input a valid employee ID."
+                }
+            }
+
         },
         {
             type: "input",
@@ -159,12 +176,28 @@ function promptIntern() {
         {
             type: "input",
             name: "email",
-            message: "What is the Intern's email?"
+            message: "What is the Intern's email?",
+            validate: input => {
+                const valEmail = input.match(/\S+@\S+\.\S+/);
+                if(valEmail) {
+                    return true;
+                } else {
+                    return "Please input a valid email."
+                }
+            }
         },
         {
             type: "input",
             name: "id",
-            message: "What the Intern's ID?"
+            message: "What the Intern's ID?",
+            validate: input => {
+                const valID = input.match(/[a-zA-Z0-9]$/);
+                if(valID) {
+                    return true;
+                } else {
+                    return "Please input a valid employee ID."
+                }
+            }
         },
         {
             type: "input",
