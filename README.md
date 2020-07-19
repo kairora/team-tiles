@@ -49,6 +49,7 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 If you would like to contribute some code to this project or debug and test for it, please shoot the creator an email using the email address below.
 
 ## Tests
+Run the tests located in the `/test` folder using the command:
 ~~~JS
 npm run test
 ~~~
