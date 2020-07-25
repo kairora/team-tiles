@@ -6,7 +6,7 @@
 This is a CLI app that prompts to answer the user a series of questions about the employees in their team and then places the user's response into styled tiles for easy viewing and reference. Watch the [app's demonstration video here](https://youtu.be/kL38AeKz7dU). 
 
 
-![Team Tile App Image](./assets/team-tiles.png)
+![Team Tile App Image](./assets/team-tiles.PNG)
 
 ---
 
